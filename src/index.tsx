@@ -26,7 +26,7 @@ import {
 const DEFAULT_TRANSITION = (
   <Transition.Together>
     <Transition.Out type="fade" durationMs={200} interpolation="easeIn" />
-    <Transition.In type="fade" durationMs={200} />
+    <Transition.In type="slide-top" durationMs={200} />
   </Transition.Together>
 );
 
