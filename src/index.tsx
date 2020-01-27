@@ -64,12 +64,22 @@ class AnimatedSwitchView extends React.Component<Props> {
     const descriptor = this.props.descriptors[activeKey];
     const ChildComponent = descriptor.getComponent();
 
-    const transition =
+    let transition =
       (navigationConfig && navigationConfig.transition) || DEFAULT_TRANSITION;
     const transitionViewStyle =
       (navigationConfig && navigationConfig.transitionViewStyle) || null;
 
-     console.log(state.routes[state.index].params)
+    if (
+      state.routes[state.index].params &&
+      Object.keys(state.routes[state.index].params!).includes('previousIntroID')
+    ) {
+      transition =
+        (navigationConfig && navigationConfig.secondaryTransition) ||
+        DEFAULT_TRANSITION;
+    } else {
+      transition =
+        (navigationConfig && navigationConfig.transition) || DEFAULT_TRANSITION;
+    }
 
     return (
       <Transitioning.View
@@ -90,6 +100,7 @@ class AnimatedSwitchView extends React.Component<Props> {
 export type NavigationAnimatedSwitchConfig = NavigationSwitchRouterConfig & {
   transition?: React.ReactNode;
   transitionViewStyle?: ViewStyle;
+  secondaryTransition?: React.ReactNode;
 };
 
 export type NavigationAnimatedSwitchOptions = {};

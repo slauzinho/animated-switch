@@ -4,6 +4,7 @@ import { CreateNavigatorConfig, NavigationParams, NavigationRoute, NavigationRou
 export declare type NavigationAnimatedSwitchConfig = NavigationSwitchRouterConfig & {
     transition?: React.ReactNode;
     transitionViewStyle?: ViewStyle;
+    secondaryTransition?: React.ReactNode;
 };
 export declare type NavigationAnimatedSwitchOptions = {};
 export declare type NavigationAnimatedSwitchProp<State = NavigationRoute, Params = NavigationParams> = NavigationScreenProp<State, Params> & {
