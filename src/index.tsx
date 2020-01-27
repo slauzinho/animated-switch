@@ -65,14 +65,25 @@ class AnimatedSwitchView extends React.Component<Props> {
     const ChildComponent = descriptor.getComponent();
 
     let transition =
-      (navigationConfig &&
-        Math.random() > 0.5 &&
-        navigationConfig.transition) ||
-      DEFAULT_TRANSITION;
+      (navigationConfig && navigationConfig.transition) || DEFAULT_TRANSITION;
     const transitionViewStyle =
       (navigationConfig && navigationConfig.transitionViewStyle) || null;
 
-    console.log(this.props);
+    if (state.params?.[state.index].key === 'Loading') {
+      return (
+        <Transitioning.View
+          ref={this.containerRef}
+          transition={DEFAULT_TRANSITION}
+          style={[styles.container, transitionViewStyle]}
+        >
+          <SceneView
+            component={ChildComponent}
+            navigation={descriptor.navigation}
+            screenProps={screenProps}
+          />
+        </Transitioning.View>
+      );
+    }
 
     return (
       <Transitioning.View
