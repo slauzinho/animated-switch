@@ -69,6 +69,8 @@ class AnimatedSwitchView extends React.Component<Props> {
     const transitionViewStyle =
       (navigationConfig && navigationConfig.transitionViewStyle) || null;
 
+     console.log(state.routes[state.index].params)
+
     return (
       <Transitioning.View
         ref={this.containerRef}

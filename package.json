@@ -51,12 +51,6 @@
     "trailingComma": "es5",
     "singleQuote": true
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint && yarn typescript",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "@react-native-community/bob": {
     "source": "src",
     "output": "lib",
