@@ -73,10 +73,12 @@ class AnimatedSwitchView extends React.Component<Props> {
       state.routes[state.index].params &&
       Object.keys(state.routes[state.index].params!).includes('previousIntroID')
     ) {
+      console.log('transition for previous!');
       transition =
         (navigationConfig && navigationConfig.secondaryTransition) ||
         DEFAULT_TRANSITION;
     } else {
+      console.log('restore transition');
       transition =
         (navigationConfig && navigationConfig.transition) || DEFAULT_TRANSITION;
     }
